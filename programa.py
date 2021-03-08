@@ -30,13 +30,13 @@ while opcion !=6:
         for elem in hoteles_cuatro_estrellas(datos):
             print(elem)
     #Contar información: Contar los hoteles que existen, ordenados por estrellas, es decir, mostrara el numero de hoteles que hay con 5 estrellas, con 4 estrellas, etc...
-    #elif opcion == 2:
-        #for elem in contar_hoteles(datos):
-            #print("Hoteles de 5 estrellas: ",(elem[4]))
-            #print("Hoteles de 4 estrellas: ",(elem[3]))
-            #print("Hoteles de 3 estrellas: ",(elem[2]))
-            #print("Hoteles de 2 estrellas: ",(elem[1]))
-            #print("Hoteles de 1 estrellas: ",(elem[0]))
+    elif opcion == 2:
+        for i in contar_hoteles(datos):
+            print("Hoteles de 5 estrellas: " + int(i)[0])
+            print("Hoteles de 4 estrellas: " + int(i)[1])
+            print("Hoteles de 3 estrellas: " + int(i)[2])
+            print("Hoteles de 2 estrellas: " + int(i)[3])
+            print("Hoteles de 1 estrella: " + int(i)[4])
     ##Buscar o filtrar información: Pide por teclado una categoria de precio por teclado (Economico, Medio, Alto) y te muestra los hoteles que tienen esa categoria de precio.
     #elif opcion == 3:
     #    print("HOTELES POR CATEGORIAS: ")
@@ -68,12 +68,9 @@ while opcion !=6:
             print(i)
     #Ejercicio libre: Pide por teclado el nombre de un hotel sin estrellas (ya que tenemos que tener en cuenta que los nombres de los hoteles de nuestro fichero empiezan con "*" que son las estrellas )y nos devuelve su pagina web.
     elif opcion == 5:
-        var = unicode(raw_input("Nombre del hotel o que empiece por tal cadena: "),'utf-8').title()
-        for k, v in ejercicio_libre(datos).items():
-	        if k.startswith(var) and v == "":
-		        print "La url del sitio web del hotel " + k + " --> " + "No esta disponible"
-	        elif k.startswith(var) and v != "":
-		        print "La url del sitio web del hotel " + k + " --> " + v
+        nombre_web = input("Nombre Web: ")
+        for i in ejercicio_libre(datos,nombre_web):
+            print("Descripcion", i["dc:description"],"\t Direccion: ", i["lpgc:direccion"])
     print("--------")
     print("- MENU -")
     print("--------")
